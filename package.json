@@ -26,29 +26,26 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "tone": "^15.1.22"
   },
   "devDependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
-    "@eslint/eslintrc": "^3.3.3",
     "@eslint/js": "^9.39.2",
-    "@types/node": "^24.10.8",
-    "@types/react": "^19.2.8",
+    "@types/node": "24.10.13",
+    "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.53.0",
-    "@typescript-eslint/parser": "^8.53.0",
     "eslint": "^9.39.2",
-    "eslint-config-next": "^15.5.9",
-    "next": "16.0.10",
-    "sass": "^1.97.2",
+    "eslint-config-next": "16.1.6",
+    "next": "16.1.6",
+    "sass": "1.97.3",
     "typescript": "^5.9.3",
-    "vercel": "^48.12.1"
+    "vercel": "^50.17.1"
   },
   "trustedDependencies": [
     "@parcel/watcher",
