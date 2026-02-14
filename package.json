@@ -45,7 +45,7 @@
     "next": "16.1.6",
     "sass": "1.97.3",
     "typescript": "^5.9.3",
-    "vercel": "^48.12.1"
+    "vercel": "^50.17.1"
   },
   "trustedDependencies": [
     "@parcel/watcher",
