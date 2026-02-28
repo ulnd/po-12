@@ -5,7 +5,6 @@ import { useState, useEffect, useMemo } from "react";
  * @returns The current location.
  */
 const useLocation = () => {
-  "use client";
   const [location, setLocation] = useState<Location>();
 
   useEffect(() => {

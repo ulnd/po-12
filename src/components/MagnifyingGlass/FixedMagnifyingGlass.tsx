@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import classes from "./magnifyingGlass.module.scss";
 import { withinBbox } from "@/lib/dom";
 

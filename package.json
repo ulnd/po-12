@@ -30,6 +30,8 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
+    "baseline-browser-mapping": "^2.10.0",
+    "caniuse-lite": "^1.0.30001774",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tone": "^15.1.22"

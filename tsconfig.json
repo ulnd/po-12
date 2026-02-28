@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2022",
     "lib": [
       "dom",
       "dom.iterable",
@@ -11,10 +11,10 @@
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": false,
+    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -32,8 +32,7 @@
         "./src/*"
       ]
     },
-    "strictNullChecks": true,
-    "outDir": "dist"
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
@@ -42,11 +41,9 @@
     "**/*.tsx",
     "**/*.jsx",
     ".next/types/**/*.ts",
-    "jest.config.js",
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules"
   ]
 }

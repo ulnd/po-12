@@ -14,7 +14,6 @@ interface ButtonProps {
   onClick?: () => void;
   onRelease?: () => void;
   flipColors?: boolean;
-  active?: boolean;
   hovered?: boolean;
   status?: ButtonStatus;
   disabledBecause?: string;

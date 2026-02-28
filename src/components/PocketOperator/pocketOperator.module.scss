@@ -139,7 +139,6 @@
   border-radius: 20px;
   background-color: black;
   margin: auto;
-  padding: auto;
   margin-top: 6px;
   box-shadow:
     0 0 35px 5px rgba(0, 0, 0, 0.25),
@@ -162,7 +161,7 @@
   font-size: 12px;
   z-index: 9999;
   display: none;
-  position: hidden;
+  position: absolute;
   transition: all 300ms ease-out;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
 }

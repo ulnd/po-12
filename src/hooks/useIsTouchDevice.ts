@@ -1,8 +1,7 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { isTouchDevice } from "@/lib/utils";
-import { useEffect } from "react";
 
-// whenever the device aspect ration chagnes,
+// whenever the device aspect ratio changes,
 // re-poll the touch device status
 const useIsTouchDevice = () => {
   const [isTouch, setIsTouch] = useState(isTouchDevice());

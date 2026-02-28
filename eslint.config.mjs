@@ -29,12 +29,6 @@ const config = [
       "react-hooks/set-state-in-effect": "off",
     },
   },
-  {
-    files: ["next.config.ts"],
-    rules: {
-      "@typescript-eslint/no-require-imports": "off",
-    },
-  },
 ];
 
 export default config;
