@@ -26,10 +26,11 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "deploy": "bun run build && bunx wrangler pages deploy",
+    "preview": "bun run build && bunx wrangler pages dev"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.6.1",
     "baseline-browser-mapping": "^2.10.0",
     "caniuse-lite": "^1.0.30001774",
     "react": "19.2.4",
@@ -47,7 +48,7 @@
     "next": "16.1.6",
     "sass": "1.97.3",
     "typescript": "^5.9.3",
-    "vercel": "^50.17.1"
+    "wrangler": "^4.72.0"
   },
   "trustedDependencies": [
     "@parcel/watcher",

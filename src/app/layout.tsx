@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Open_Sans } from "next/font/google";
 import { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/react";
+
 
 const faviconPath = "favicons";
 
@@ -91,7 +91,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         }}
       >
         {children}
-        <Analytics />
       </body>
     </html>
   );
