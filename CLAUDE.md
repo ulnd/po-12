@@ -6,27 +6,27 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a web-based emulation of the Teenage Engineering PO-12 pocket operator drum machine built with Next.js 16, React 19, and Tone.js for Web Audio API integration. The application runs entirely in the browser and is designed as a Progressive Web App (PWA).
+This is a web-based emulation of the Teenage Engineering PO-12 pocket operator drum machine built with Vite 8, React 19, and Tone.js for Web Audio API integration. The application runs entirely in the browser and is designed as a Progressive Web App (PWA).
 
 ## Development Commands
 
 ### Core Commands
-- `bun dev` - Start development server (preferred over npm)
-- `bun run build` - Build for production
-- `bun run start` - Start production server
-- `bun run lint` - Run ESLint
+- `bun dev` - Start Vite dev server with HMR
+- `bun run build` - Build for production (outputs to `dist/`)
+- `bun run preview` - Preview production build locally
+- `bun run deploy` - Build and deploy to Cloudflare Pages
 
 ### Requirements
-- Node.js >= 20.0.0
 - Bun (package manager and runtime)
 
 ## Architecture Overview
 
 ### Core Application Structure
-- **Next.js App Router**: Uses `src/app/` directory structure with `layout.tsx` and `page.tsx`
+- **Vite SPA**: Single-page app with `index.html` entry point, `src/main.tsx` root, and `src/App.tsx` main component
 - **Component Architecture**: Modular component structure with clear separation between UI and logic
 - **State Management**: Local state with custom hooks, persistent state via localStorage
 - **Audio Engine**: Tone.js integration for Web Audio API with custom sampler implementation
+- **PWA**: Managed via `vite-plugin-pwa` with workbox service worker generation
 
 ### Key Architectural Patterns
 
@@ -60,22 +60,21 @@ The application heavily uses custom hooks for state management and side effects:
 ### Configuration
 - **TypeScript**: Configured with path aliases (`@/*` maps to `src/*`)
 - **SASS**: Used for component styling with CSS modules
-- **PWA**: Configured with custom theme colors and offline support
-- **Webpack**: Custom configuration for SVG and audio file handling
+- **PWA**: Configured via `vite-plugin-pwa` with workbox and existing `site.webmanifest`
+- **Vite**: Handles all bundling, SCSS, and dev server
 
 ## Repository Guidelines (mirrors `AGENTS.md`)
 
 ### Project Structure & Module Organization
-Source lives under `src/`: `app/` hosts the Next.js 16 route tree, `components/` contains reusable LCD, pocket-operator, and control widgets, `hooks/` keeps shared clock/animation logic, and `lib/` stores lightweight utilities (audio math, data mappers). Global assets, SVGs, and audio live in `public/`. CSS Modules (e.g., `src/components/LCD/lcd.module.scss`) localize styling, so prefer co-locating styles beside the component they serve.
+Source lives under `src/`: `components/` contains reusable LCD, pocket-operator, and control widgets, `hooks/` keeps shared clock/animation logic, and `lib/` stores lightweight utilities (audio math, data mappers). Global assets, SVGs, and audio live in `public/`. CSS Modules (e.g., `src/components/LCD/lcd.module.scss`) localize styling, so prefer co-locating styles beside the component they serve.
 
 ### Build, Test, and Development Commands
-- `bun dev` — Runs `next dev` with hot reload; requires Bun and Node 20+. Useful while iterating on figure animators or sampler UI.
-- `bun run build` — Production build with type-checking; ensure it passes before opening a PR.
-- `bun run start` — Serves the optimized build locally, mirroring Vercel.
-- `bun run lint` — Executes the Next/TypeScript ESLint config; fix autofixable issues with `bunx next lint --fix` if needed.
+- `bun dev` — Runs Vite dev server with HMR. Useful while iterating on figure animators or sampler UI.
+- `bun run build` — Production build; ensure it passes before opening a PR.
+- `bun run preview` — Serves the optimized build locally.
 
 ### Coding Style & Naming Conventions
-Use TypeScript everywhere. Follow 2-space indentation already present in `src/app/page.tsx`. Components are PascalCase (`PocketOperatorPanel`), hooks begin with `use` and camelCase (`useFigureAnimator`), and CSS Modules follow `*.module.scss`. Prefer refs + DOM class toggles for high-frequency animation to avoid React churn, and keep derived values memoized to limit rerenders.
+Use TypeScript everywhere. Follow 2-space indentation. Components are PascalCase (`PocketOperatorPanel`), hooks begin with `use` and camelCase (`useFigureAnimator`), and CSS Modules follow `*.module.scss`. Prefer refs + DOM class toggles for high-frequency animation to avoid React churn, and keep derived values memoized to limit rerenders.
 
 ### Testing Guidelines
 Automated tests are not yet wired up, so rely on manual regression passes: verify transport timing, keypad presses, and LCD animations in Chrome + Safari. When adding tests, place them next to the feature (`componentName.test.tsx`) and run through `bun test` (add the script when introducing a framework such as Vitest). Document any new QA steps in the PR so others can reproduce.

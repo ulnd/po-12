@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import type { Dispatch, SetStateAction } from "react";
 import NumberedButton from "./numberedButton";

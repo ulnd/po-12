@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import classes from "./lcd.module.scss";
 

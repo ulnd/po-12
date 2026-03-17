@@ -1,7 +1,5 @@
-"use client";
-
-import PocketOperator from "../components/PocketOperator";
-import classes from "./page.module.scss";
+import PocketOperator from "./components/PocketOperator";
+import classes from "./App.module.scss";
 import { useState, useEffect, useMemo } from "react";
 import { usePatterns } from "@/hooks/usePattern";
 import useCurrentBeat from "@/hooks/useCurrentBeat";
@@ -17,7 +15,7 @@ import useBPM from "@/hooks/useBPM";
 
 const defaultTilt = { x: 0, y: 0 };
 
-const PocketOperatorWrapper = () => {
+function App() {
   const onTouchDevice = useIsTouchDevice();
 
   const [show, setShowing] = useState(false);
@@ -46,13 +44,13 @@ const PocketOperatorWrapper = () => {
 
   const [selectedSound, setSelectedSound] = useLocalStorage(
     "pocketOperatorSelectedSound",
-    1
+    1,
   );
 
   const resetSelectedSound = () => setSelectedSound(1);
 
   const [selectingMode, setSelectingMode] = useState<SelectingMode>(
-    SelectingMode.DEFAULT
+    SelectingMode.DEFAULT,
   );
   const resetSelectingMode = () => setSelectingMode(SelectingMode.DEFAULT);
 
@@ -65,7 +63,7 @@ const PocketOperatorWrapper = () => {
   // used to show how the beat progresses across the device
   const currentBeatIndex = useMemo(
     () => (playing ? Math.floor(currentBeat) % 16 : -1),
-    [currentBeat, playing]
+    [currentBeat, playing],
   );
 
   const {
@@ -147,6 +145,6 @@ const PocketOperatorWrapper = () => {
       />
     </div>
   );
-};
+}
 
-export default PocketOperatorWrapper;
+export default App;

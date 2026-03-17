@@ -16,19 +16,14 @@
     "drum-machine",
     "web-audio",
     "synthesizer",
-    "nextjs",
+    "vite",
     "react"
   ],
-  "engines": {
-    "node": ">=22.x"
-  },
   "scripts": {
-    "dev": "next dev --turbo",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint .",
-    "deploy": "bun run build && bunx wrangler pages deploy",
-    "preview": "bun run build && bunx wrangler pages dev"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "bun run build && bunx wrangler pages deploy"
   },
   "dependencies": {
     "baseline-browser-mapping": "^2.10.0",
@@ -38,16 +33,14 @@
     "tone": "^15.1.22"
   },
   "devDependencies": {
-    "@ducanh2912/next-pwa": "^10.2.9",
-    "@eslint/js": "^9.39.2",
     "@types/node": "24.10.13",
     "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
-    "eslint": "^9.39.2",
-    "eslint-config-next": "16.1.6",
-    "next": "16.1.6",
-    "sass": "1.97.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "sass": "^1.98.0",
     "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vite-plugin-pwa": "^1.2.0",
     "wrangler": "^4.72.0"
   },
   "trustedDependencies": [
